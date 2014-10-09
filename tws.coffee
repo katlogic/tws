@@ -5,8 +5,7 @@ module.exports = (url, server, handler) ->
   # Check that url matches supplied regex
   is_ws = (req) ->
     return null if req.url.search(url) != 0
-    key = req.headers['sec-websocket-key']
-    return key
+    req.headers['sec-websocket-key']
 
   # Process request
   do_req = (sk, req) ->
