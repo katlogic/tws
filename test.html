@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+<div id="count">0</div>
+<script type="text/javascript">
+if (!window.WebSocket)
+  alert("no ws support");
+var u = 'ws'+(document.location.protocol=='https:'?'s':'')+'://'+document.location.host+'/echo/';
+var ws = new WebSocket(u);
+ws.onopen = function()
+{
+  ws.send("1");
+};
+ws.onmessage = function (evt) 
+{ 
+   var n = evt.data;
+   document.getElementById('count').innerHTML = n;
+   n = 1+parseInt(n);
+   setTimeout(function(){
+   ws.send(""+n);}, 100);
+};
+ws.onclose = function()
+{ 
+   alert("Connection is closed..."); 
+};
+</script>
+</body>
+</html>
