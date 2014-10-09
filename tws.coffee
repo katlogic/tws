@@ -11,12 +11,12 @@ module.exports = (url, server, handler) ->
   # Process request
   do_req = (sk, req) ->
     if not key = is_ws req
-      req.close
+      req.close()
       return
     sk.on 'data', do_data
     # If it's a function, we expect it to install event handlers
     if typeof handler == 'function'
-      sk = handler(sk, req) || sk
+      sk = handler.call(sk, req) || sk
     else
       # Otherwise it's a handler list
       for f of handler
