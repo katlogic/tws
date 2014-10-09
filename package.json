@@ -1,0 +1,24 @@
+{
+  "name":         "tws",
+  "description":  "Tiny Web Sockets",
+  "keywords":     ["websocket", "ws" ],
+  "author":       "Karel Tuma",
+  "version":      "1.0.0-0",
+  "licenses":     [{
+    "type":       "MIT",
+    "url":        "https://raw.github.com/jashkenas/coffee-script/master/LICENSE"
+  }],
+  "engines":      {
+    "node":       ">=0.8.0"
+  },
+  "main" : "./tws.js",
+  "homepage":     "https://github.com/katlogic/tws",
+  "bugs":         "https://github.com/katlogic/tws/issues",
+  "repository":   {
+    "type": "git",
+    "url": "git://github.com/katlogic/tws.git"
+  },
+  "scripts": {
+    "prepublish": "coffee -c tws.coffee"
+  }
+}
